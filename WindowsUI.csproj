@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{727975CB-86DF-4059-87AD-F3C3CA18DAF7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsUI</RootNamespace>
+    <AssemblyName>WindowsUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\About.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BlackTransparentBackground.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BlackTransparentBackground.Designer.cs">
+      <DependentUpon>BlackTransparentBackground.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DashboardTile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PopupMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\PopupMessageBox.designer.cs">
+      <DependentUpon>PopupMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global\GlobalConfig.cs" />
+    <Compile Include="Global\Phrases.cs" />
+    <Compile Include="Global\Phrases.English.cs" />
+    <Compile Include="Global\Phrases.Hebrew.cs" />
+    <Compile Include="Helpers\Utility.cs" />
+    <Compile Include="Pages\Page1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Page1.Designer.cs">
+      <DependentUpon>Page1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BlackTransparentBackground.resx">
+      <DependentUpon>BlackTransparentBackground.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PopupMessageBox.resx">
+      <DependentUpon>PopupMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Page1.resx">
+      <DependentUpon>Page1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BigX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\origDashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrigI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrigLanguage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrigWindow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrigX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SmallI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SmallLanguage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SmallWindow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SmallX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BigDashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BigI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BigLanguage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BigWindow.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
