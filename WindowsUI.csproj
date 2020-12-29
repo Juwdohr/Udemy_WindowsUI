@@ -84,6 +84,18 @@
     <Compile Include="Pages\Page1.Designer.cs">
       <DependentUpon>Page1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Page2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Page2.designer.cs">
+      <DependentUpon>Page2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Page3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Page3.designer.cs">
+      <DependentUpon>Page3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\About.resx">
@@ -100,6 +112,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Page1.resx">
       <DependentUpon>Page1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Page2.resx">
+      <DependentUpon>Page2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Page3.resx">
+      <DependentUpon>Page3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,12 +138,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\WindowsUIBackArrowAdded.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\BigX.png" />
+    <None Include="Resources\MedStep1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\number1-634914_640.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\number3_PNG14959.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\origClosedWindow.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\origDashboard.png" />
@@ -143,16 +171,34 @@
     <None Include="Resources\OrigX.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\SmallArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SmallClosedWindow.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\SmallI.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SmallLanguage.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\SmallStep1.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\SmallWindow.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SmallX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2-Number-PNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BigArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BigClosedWindow.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BigDashboard.png" />
@@ -164,7 +210,16 @@
     <None Include="Resources\BigLanguage.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\BigStep1.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\BigWindow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BigX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MedGreyArrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

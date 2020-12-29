@@ -17,20 +17,27 @@ namespace WindowsUI
         #region variables
 
         Page1 page1;
+        Page2 page2;
+        Page3 page3;
 
         //Ribbon Panels
         TableLayoutPanel navigationTableLayoutPanel = new TableLayoutPanel();
+        TableLayoutPanel pageTableLayoutPanel = new TableLayoutPanel();
 
         //Labels
         Label titleLabel = new Label();
 
         // Buttons
-        Button exitButton = new Button();
-        Button aboutButton = new Button();
-        Button fullScreenButton = new Button();
+        Button exitBtn = new Button();
+        Button aboutBtn = new Button();
+        Button fullScreenBtn = new Button();
         Button languageBtn = new Button();
+        Button backBtn = new Button();
+        Button step1Btn = new Button();
 
         bool showFullScreen = false;
+        string holdFullScreenCode = "";
+        string whichControl = GlobalConfig.DASHBOARD;
 
         #endregion
         #region init & load
@@ -44,14 +51,12 @@ namespace WindowsUI
             GlobalConfig.LANGUAGE = GlobalConfig.ENGLISH;
             this.Icon = MakeIcon();
 
-            BuildNavigationRibbonPanel();
-            LoadDashboard();
-            SetScreen();
-
             this.MouseDown += new MouseEventHandler(form_MouseDown);
-            dashboardPanel.MouseDown += new MouseEventHandler(tableLayoutPanel1_MouseDown);
+            dashboardPanel.MouseDown += new MouseEventHandler(base_MouseDown);
+            titleLabel.MouseDown += new MouseEventHandler(base_MouseDown);
+            navigationTableLayoutPanel.MouseDown += new MouseEventHandler(base_MouseDown);
 
-            foreach(DashboardTile dt in dashboardPanel.Controls.OfType<DashboardTile>())
+            foreach (DashboardTile dt in dashboardPanel.Controls.OfType<DashboardTile>())
             {
                 dt.TileClicked += new EventHandler(dashboardTile_TileClicked);
                 dt.TileRightClicked += new EventHandler(dashboardTile_TileRightClicked);
@@ -68,29 +73,40 @@ namespace WindowsUI
             //dashboardTile2.TileRightClicked += new EventHandler(dashboardTile_TileRightClicked);
             //dashboardTile2.TileMoved += new EventHandler(dashboardTile_TileMoved);
 
-            exitButton.MouseHover += new EventHandler(Utility.Control_MouseHover);
-            aboutButton.MouseHover += new EventHandler(Utility.Control_MouseHover);
-            fullScreenButton.MouseHover += new EventHandler(Utility.Control_MouseHover);
+            exitBtn.MouseHover += new EventHandler(Utility.Control_MouseHover);
+            aboutBtn.MouseHover += new EventHandler(Utility.Control_MouseHover);
+            fullScreenBtn.MouseHover += new EventHandler(Utility.Control_MouseHover);
             languageBtn.MouseHover += new EventHandler(Utility.Control_MouseHover);
+            backBtn.MouseHover += new EventHandler(Utility.Control_MouseHover);
+            step1Btn.MouseHover += new EventHandler(Utility.Control_MouseHover);
 
-            fullScreenButton.Click += new EventHandler(delegate { SetScreen(); });
-            aboutButton.Click += new EventHandler(delegate { ShowAboutBox(); });
-            exitButton.Click += new EventHandler(delegate { ExitApplication(); });
+            fullScreenBtn.Click += new EventHandler(delegate { SetScreen(); });
+            aboutBtn.Click += new EventHandler(delegate { ShowAboutBox(); });
+            exitBtn.Click += new EventHandler(delegate { ExitApplication(); });
             languageBtn.Click += new EventHandler(delegate { ChangeLanguage(); });
+            backBtn.Click += new EventHandler(delegate { ShowDashboard(); });
+            step1Btn.Click += new EventHandler(delegate { Step1(); });
+
+            BuildNavigationRibbonPanels();
+
+            LoadDashboardTiles();
 
             SetScreen();
+
             RefreshLabels(new object(), new EventArgs());
 
             GlobalConfig.LanguageChanged += new EventHandler(RefreshLabels);
         }
+
         private void RefreshLabels(object sender, EventArgs e)
         {
             titleLabel.Text = Phrases.GetPhrase("DASHBOARD");
-            aboutButton.Name = Phrases.GetPhrase("ABOUT");
-            exitButton.Name = Phrases.GetPhrase("EXIT");
-            titleLabel.Text = Phrases.GetPhrase("DASHBOARD");
+            aboutBtn.Name = Phrases.GetPhrase("ABOUT");
+            exitBtn.Name = Phrases.GetPhrase("EXIT");
+            backBtn.Name = Phrases.GetPhrase("BACK");
+            step1Btn.Name = Phrases.GetPhrase("STEP1");
             languageBtn.Name = Phrases.GetPhrase(GlobalConfig.LANGUAGE == GlobalConfig.ENGLISH ? "ENGLISH" : "HEBREW");
-            fullScreenButton.Name = Phrases.GetPhrase(showFullScreen ? "WINDOW" : "FULLSCREEN:");
+            fullScreenBtn.Name = Phrases.GetPhrase(showFullScreen ? "WINDOW" : "FULLSCREEN:");
         }
         #endregion
         #region make Icon
@@ -107,7 +123,7 @@ namespace WindowsUI
         }
         #endregion
         #region Load Dashboard
-        private void LoadDashboard()
+        private void LoadDashboardTiles()
         {
             titleLabel.Text = Phrases.GetPhrase("DASHBOARD");
             titleLabel.Dock = DockStyle.Fill;
@@ -119,7 +135,6 @@ namespace WindowsUI
             dashboardTopPanel.Controls.Add(titleLabel);
         }
         #endregion
-
         #region Dashboard Tile Events
         private void dashboardTile_TileClicked(object sender, EventArgs e)
         {
@@ -131,6 +146,9 @@ namespace WindowsUI
                 System.Reflection.BindingFlags.Default | System.Reflection.BindingFlags.InvokeMethod,
                 null, this, new string[] { "" });
 
+            dashboardTopPanel.BackColor = Color.White;
+            dashboardTopPanel.Controls.Clear();
+            dashboardTopPanel.Controls.Add(pageTableLayoutPanel);
         }
         private void dashboardTile_TileRightClicked(object sender, EventArgs e)
         {
@@ -147,48 +165,71 @@ namespace WindowsUI
             if (page1 == null)
             {
                 page1 = new Page1();
-
                 page1.Dock = DockStyle.Fill;
-
-                //TODO: any other Itemsv 
+                page1.MouseDown += new MouseEventHandler(form_MouseDown);
             }
+            dashboardBottomPanel.Controls.Clear();
+            dashboardBottomPanel.Controls.Add(page1);
+            page1.RefreshLabels(null, null);
+            step1Btn.Tag = page1;
+            whichControl = GlobalConfig.PAGE;
         }
         public void dashboardTile2_Run(string str)
         {
-            MessageBox.Show("DashboardTile2 Clicked");
+            if (page2 == null)
+            {
+                page2 = new Page2();
+                page2.Dock = DockStyle.Fill;
+                page2.MouseDown += new MouseEventHandler(form_MouseDown);
+            }
+            dashboardBottomPanel.Controls.Clear();
+            dashboardBottomPanel.Controls.Add(page2);
+            page2.RefreshLabels(null, null);
+            step1Btn.Tag = page2;
+            whichControl = GlobalConfig.PAGE;
         }
         public void dashboardTile3_Run(string str)
         {
-            MessageBox.Show("DashboardTile3 Clicked");
+            if (page3 == null)
+            {
+                page3 = new Page3();
+                page3.Dock = DockStyle.Fill;
+                page3.MouseDown += new MouseEventHandler(form_MouseDown);
+            }
+            dashboardBottomPanel.Controls.Clear();
+            dashboardBottomPanel.Controls.Add(page3);
+            page3.RefreshLabels(null, null);
+            step1Btn.Tag = page3;
+            whichControl = GlobalConfig.PAGE;
         }
         #endregion
-
         #region build navigation
-        private void BuildNavigationRibbonPanel()
+        private void BuildNavigationRibbonPanels()
         {
-            aboutButton.BackColor = Color.Transparent;
-            aboutButton.BackgroundImage = Properties.Resources.SmallI;
-            aboutButton.BackgroundImageLayout = ImageLayout.Center;
-            aboutButton.Dock = DockStyle.Fill;
-            aboutButton.FlatAppearance.BorderColor = Color.White;
-            aboutButton.FlatAppearance.BorderSize = 0;
-            aboutButton.FlatAppearance.MouseOverBackColor = Color.SlateGray;
-            aboutButton.FlatStyle = FlatStyle.Flat;
-            aboutButton.Margin = new Padding(0);
-            aboutButton.Name = Phrases.GetPhrase("ABOUT");
-            aboutButton.UseVisualStyleBackColor = false;
+            // Navigator Panel
+            aboutBtn.BackColor = Color.Transparent;
+            aboutBtn.BackgroundImage = Properties.Resources.SmallI;
+            aboutBtn.BackgroundImageLayout = ImageLayout.Center;
+            aboutBtn.Dock = DockStyle.Fill;
+            aboutBtn.FlatAppearance.BorderColor = Color.White;
+            aboutBtn.FlatAppearance.BorderSize = 0;
+            aboutBtn.FlatAppearance.MouseOverBackColor = Color.SlateGray;
+            aboutBtn.FlatStyle = FlatStyle.Flat;
+            aboutBtn.Margin = new Padding(0);
+            //aboutButton.Name = Phrases.GetPhrase("ABOUT");
+            aboutBtn.UseVisualStyleBackColor = false;
 
-            exitButton.BackColor = Color.Transparent;
-            exitButton.BackgroundImage = Properties.Resources.SmallX;
-            exitButton.BackgroundImageLayout = ImageLayout.Center;
-            exitButton.Dock = DockStyle.Fill;
-            exitButton.FlatAppearance.BorderColor = Color.White;
-            exitButton.FlatAppearance.BorderSize = 0;
-            exitButton.FlatAppearance.MouseOverBackColor = Color.SlateGray;
-            exitButton.FlatStyle = FlatStyle.Flat;
-            exitButton.Margin = new Padding(0);
-            exitButton.Name = Phrases.GetPhrase("EXIT");
-            exitButton.UseVisualStyleBackColor = false;
+            exitBtn.BackColor = Color.Transparent;
+            exitBtn.BackgroundImage = Properties.Resources.SmallX;
+            exitBtn.BackgroundImageLayout = ImageLayout.Center;
+            exitBtn.Dock = DockStyle.Fill;
+            exitBtn.FlatAppearance.BorderColor = Color.White;
+            exitBtn.FlatAppearance.BorderSize = 0;
+            exitBtn.FlatAppearance.MouseOverBackColor = Color.SlateGray;
+            exitBtn.FlatStyle = FlatStyle.Flat;
+            exitBtn.Margin = new Padding(0);
+            // exitButton.Name = Phrases.GetPhrase("EXIT");
+            exitBtn.UseVisualStyleBackColor = false;
 
             languageBtn.BackColor = Color.Transparent;
             languageBtn.BackgroundImage = Properties.Resources.SmallLanguage;
@@ -199,20 +240,21 @@ namespace WindowsUI
             languageBtn.FlatAppearance.MouseOverBackColor = Color.SlateGray;
             languageBtn.FlatStyle = FlatStyle.Flat;
             languageBtn.Margin = new Padding(0);
-            languageBtn.Name = Phrases.GetPhrase("HEBREW");
+            //languageBtn.Name = Phrases.GetPhrase("HEBREW");
             languageBtn.UseVisualStyleBackColor = false;
 
-            fullScreenButton.BackColor = Color.Transparent;
-            fullScreenButton.BackgroundImage = Properties.Resources.SmallWindow;
-            fullScreenButton.BackgroundImageLayout = ImageLayout.Center;
-            fullScreenButton.Dock = DockStyle.Fill;
-            fullScreenButton.FlatAppearance.BorderColor = Color.White;
-            fullScreenButton.FlatAppearance.BorderSize = 0;
-            fullScreenButton.FlatAppearance.MouseOverBackColor = Color.SlateGray;
-            fullScreenButton.FlatStyle = FlatStyle.Flat;
-            fullScreenButton.Margin = new Padding(0);
-            fullScreenButton.Name = Phrases.GetPhrase("WINDOW");
-            fullScreenButton.UseVisualStyleBackColor = false;
+            fullScreenBtn.BackColor = Color.Transparent;
+            fullScreenBtn.BackgroundImage = Properties.Resources.SmallWindow;
+            fullScreenBtn.BackgroundImageLayout = ImageLayout.Center;
+            fullScreenBtn.Dock = DockStyle.Fill;
+            fullScreenBtn.FlatAppearance.BorderColor = Color.White;
+            fullScreenBtn.FlatAppearance.BorderSize = 0;
+            fullScreenBtn.FlatAppearance.MouseOverBackColor = Color.SlateGray;
+            fullScreenBtn.FlatStyle = FlatStyle.Flat;
+            fullScreenBtn.Margin = new Padding(0);
+            //fullScreenButton.Name = Phrases.GetPhrase("WINDOW");
+            fullScreenBtn.UseVisualStyleBackColor = false;
+
 
             navigationTableLayoutPanel.ColumnCount = 11;
             navigationTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
@@ -227,9 +269,9 @@ namespace WindowsUI
             navigationTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
             navigationTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
 
-            navigationTableLayoutPanel.Controls.Add(exitButton, 10, 0);
-            navigationTableLayoutPanel.Controls.Add(aboutButton, 9, 0);
-            navigationTableLayoutPanel.Controls.Add(fullScreenButton, 8, 0);
+            navigationTableLayoutPanel.Controls.Add(exitBtn, 10, 0);
+            navigationTableLayoutPanel.Controls.Add(aboutBtn, 9, 0);
+            navigationTableLayoutPanel.Controls.Add(fullScreenBtn, 8, 0);
             navigationTableLayoutPanel.Controls.Add(languageBtn, 7, 0);
 
             navigationTableLayoutPanel.Margin = new Padding(0);
@@ -239,14 +281,69 @@ namespace WindowsUI
             navigationTableLayoutPanel.Size = new Size(875, 75);
             navigationTableLayoutPanel.Dock = DockStyle.Fill;
             navigationTableLayoutPanel.BackColor = Color.Transparent;
+
+            // Ribbon Panel
+            backBtn.BackColor = Color.Transparent;
+            backBtn.BackgroundImage = Properties.Resources.MedGreyArrow;
+            backBtn.BackgroundImageLayout = ImageLayout.Center;
+            backBtn.Dock = DockStyle.Fill;
+            backBtn.FlatAppearance.BorderColor = Color.White;
+            backBtn.FlatAppearance.BorderSize = 0;
+            backBtn.FlatAppearance.MouseOverBackColor = Color.SlateGray;
+            backBtn.FlatStyle = FlatStyle.Flat;
+            backBtn.Margin = new Padding(0);
+            // backBtn.Name = Phrases.GetPhrase("BACK");
+            backBtn.UseVisualStyleBackColor = false;
+
+            step1Btn.BackColor = Color.Transparent;
+            step1Btn.BackgroundImage = Properties.Resources.MedStep1;
+            step1Btn.BackgroundImageLayout = ImageLayout.Center;
+            step1Btn.Dock = DockStyle.Fill;
+            step1Btn.FlatAppearance.BorderColor = Color.White;
+            step1Btn.FlatAppearance.BorderSize = 0;
+            step1Btn.FlatAppearance.MouseOverBackColor = Color.SlateGray;
+            step1Btn.FlatStyle = FlatStyle.Flat;
+            step1Btn.Margin = new Padding(0);
+            // step1Btn.Name = Phrases.GetPhrase("STEP1");
+            step1Btn.UseVisualStyleBackColor = false;
+
+            pageTableLayoutPanel.ColumnCount = 11;
+            pageTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
+            pageTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            pageTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
+            pageTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
+            pageTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
+            pageTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
+
+            pageTableLayoutPanel.Controls.Add(step1Btn, 5, 0);
+            pageTableLayoutPanel.Controls.Add(backBtn, 0, 0);
+
+            pageTableLayoutPanel.Margin = new Padding(0);
+
+            pageTableLayoutPanel.RowCount = 1;
+            pageTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pageTableLayoutPanel.Size = new Size(875, 75);
+            pageTableLayoutPanel.Dock = DockStyle.Fill;
+            pageTableLayoutPanel.BackColor = Color.Transparent;
+
         }
         #endregion
         #region Set Ribbon Panel
         private void SetRibbonPanel()
         {
-            dashboardTopPanel.BackColor = Color.White;
-            dashboardTopPanel.Controls.Clear();
-            dashboardTopPanel.Controls.Add(titleLabel);
+            if (whichControl == GlobalConfig.PAGE)
+            {
+                dashboardTopPanel.BackColor = Color.White;
+                dashboardTopPanel.Controls.Clear();
+                dashboardTopPanel.Controls.Add(pageTableLayoutPanel);
+            }
+            else
+            {
+                dashboardTopPanel.BackColor = Color.White;
+                dashboardTopPanel.Controls.Clear();
+                dashboardTopPanel.Controls.Add(titleLabel);
+            }
+            
         }
         #endregion
         #region mouseDown
@@ -264,7 +361,7 @@ namespace WindowsUI
             }
         }
         
-        private void tableLayoutPanel1_MouseDown(object sender, MouseEventArgs e)
+        private void base_MouseDown(object sender, MouseEventArgs e)
         {
             base.OnMouseDown(e);
         }
@@ -287,6 +384,8 @@ namespace WindowsUI
                     break;
             }
 
+            SetRibbonPanel();
+
             GlobalConfig.LanguageChangedFunction();
         }
         #endregion
@@ -296,12 +395,12 @@ namespace WindowsUI
             if(showFullScreen)
             {
                 showFullScreen = false;
-                fullScreenButton.Name = Phrases.GetPhrase("FULLSCREEN");
+                fullScreenBtn.Name = Phrases.GetPhrase("FULLSCREEN");
             }
             else
             {
                 showFullScreen = true;
-                fullScreenButton.Name = Phrases.GetPhrase("WINDOW");
+                fullScreenBtn.Name = Phrases.GetPhrase("WINDOW");
             }
 
             Rectangle workingArea = Screen.GetWorkingArea(this);
@@ -311,7 +410,8 @@ namespace WindowsUI
                 this.WindowState = FormWindowState.Normal;
                 FormBorderStyle = FormBorderStyle.None;
                 WindowState = FormWindowState.Maximized;
-                //TODO: Swap image here
+                fullScreenBtn.BackgroundImage = Properties.Resources.SmallWindow;
+                fullScreenBtn.Refresh();
             }
             else
             {
@@ -322,7 +422,8 @@ namespace WindowsUI
                 this.Left = 0;
                 this.Height = workingArea.Height;
                 this.Width = workingArea.Width;
-                //TODO: Swap Image here;
+                fullScreenBtn.BackgroundImage = Properties.Resources.SmallClosedWindow;
+                fullScreenBtn.Refresh();
             }
 
             SetRibbonPanel();
@@ -359,6 +460,33 @@ namespace WindowsUI
                 SetRibbonPanel();
             }
             msgBox.Dispose();
+        }
+        #endregion
+        #region Step1
+        private void Step1()
+        {
+            ///TODO: implement Step 1
+            object page = step1Btn.Tag;
+
+            //MessageBox.Show(tile.Name + " Tile Clicked");
+
+            page.GetType().InvokeMember("Step1BtnClicked",
+                System.Reflection.BindingFlags.Default | System.Reflection.BindingFlags.InvokeMethod,
+                null, page, new string[] { "" });
+
+
+        }
+        #endregion
+        #region Back
+        private void ShowDashboard()
+        {
+            dashboardTopPanel.BackColor = Color.White;
+            dashboardTopPanel.Controls.Clear();
+            dashboardTopPanel.Controls.Add(titleLabel);
+
+            dashboardBottomPanel.Controls.Clear();
+            dashboardBottomPanel.Controls.Add(dashboardPanel);
+            whichControl = GlobalConfig.DASHBOARD;
         }
         #endregion
     }

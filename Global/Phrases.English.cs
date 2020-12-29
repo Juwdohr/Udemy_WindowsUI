@@ -24,6 +24,11 @@ namespace WindowsUI
                     _englishDictionary.Add("FULLSCREEN", "View Full Screen");
                     _englishDictionary.Add("EXIT", "Exit");
                     _englishDictionary.Add("QUIT", "Do you want to quit?");
+                    _englishDictionary.Add("PAGE1", "Page 1");
+                    _englishDictionary.Add("PAGE2", "Page 2");
+                    _englishDictionary.Add("PAGE3", "Page 3");
+                    _englishDictionary.Add("BACK", "Back");
+                    _englishDictionary.Add("STEP1", "Step 1");
                 }
                 return _englishDictionary;
             }

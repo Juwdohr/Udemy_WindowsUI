@@ -24,6 +24,11 @@ namespace WindowsUI
                     _hebrewDictionary.Add("FULLSCREEN", "צפה במסך מלא");
                     _hebrewDictionary.Add("EXIT", "יְצִיאָה");
                     _hebrewDictionary.Add("QUIT", "?האם אתה רוצה להפסיק");
+                    _hebrewDictionary.Add("PAGE1", "עמוד 1");
+                    _hebrewDictionary.Add("PAGE2", "עמוד 2");
+                    _hebrewDictionary.Add("PAGE3", "עמוד 3");
+                    _hebrewDictionary.Add("BACK", "חזור");
+                    _hebrewDictionary.Add("STEP1", "שלב 1");
                 }
                 return _hebrewDictionary;
             }

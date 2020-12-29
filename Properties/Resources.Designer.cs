@@ -63,6 +63,36 @@ namespace WindowsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2_Number_PNG {
+            get {
+                object obj = ResourceManager.GetObject("_2_Number_PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BigArrow {
+            get {
+                object obj = ResourceManager.GetObject("BigArrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BigClosedWindow {
+            get {
+                object obj = ResourceManager.GetObject("BigClosedWindow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BigDashboard {
             get {
                 object obj = ResourceManager.GetObject("BigDashboard", resourceCulture);
@@ -93,6 +123,16 @@ namespace WindowsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BigStep1 {
+            get {
+                object obj = ResourceManager.GetObject("BigStep1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BigWindow {
             get {
                 object obj = ResourceManager.GetObject("BigWindow", resourceCulture);
@@ -106,6 +146,56 @@ namespace WindowsUI.Properties {
         internal static System.Drawing.Bitmap BigX {
             get {
                 object obj = ResourceManager.GetObject("BigX", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MedGreyArrow {
+            get {
+                object obj = ResourceManager.GetObject("MedGreyArrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MedStep1 {
+            get {
+                object obj = ResourceManager.GetObject("MedStep1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap number1_634914_640 {
+            get {
+                object obj = ResourceManager.GetObject("number1_634914_640", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap number3_PNG14959 {
+            get {
+                object obj = ResourceManager.GetObject("number3_PNG14959", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap origClosedWindow {
+            get {
+                object obj = ResourceManager.GetObject("origClosedWindow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,6 +253,26 @@ namespace WindowsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SmallArrow {
+            get {
+                object obj = ResourceManager.GetObject("SmallArrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SmallClosedWindow {
+            get {
+                object obj = ResourceManager.GetObject("SmallClosedWindow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SmallI {
             get {
                 object obj = ResourceManager.GetObject("SmallI", resourceCulture);
@@ -176,6 +286,16 @@ namespace WindowsUI.Properties {
         internal static System.Drawing.Bitmap SmallLanguage {
             get {
                 object obj = ResourceManager.GetObject("SmallLanguage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SmallStep1 {
+            get {
+                object obj = ResourceManager.GetObject("SmallStep1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

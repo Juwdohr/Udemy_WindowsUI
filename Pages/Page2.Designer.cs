@@ -1,6 +1,6 @@
 ﻿namespace WindowsUI
 {
-    partial class Page1
+    partial class Page2
     {
         /// <summary> 
         /// Required designer variable.
@@ -45,15 +45,15 @@
             this.nameLabel.Text = "Name";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Page1
+            // Page2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
             this.Controls.Add(this.nameLabel);
-            this.Name = "Page1";
+            this.Name = "Page2";
             this.Size = new System.Drawing.Size(1043, 740);
-            this.Load += new System.EventHandler(this.Page1_Load);
+            this.Load += new System.EventHandler(this.Page2_Load);
             this.ResumeLayout(false);
 
         }

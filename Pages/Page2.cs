@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsUI
 {
-    public partial class Page1 : UserControl
+    public partial class Page2 : UserControl
     {
         #region Properties
         #endregion
@@ -18,11 +18,11 @@ namespace WindowsUI
         int count = 0;
         #endregion
         #region Init & Load
-        public Page1()
+        public Page2()
         {
             InitializeComponent();
         }
-        private void Page1_Load(object sender, EventArgs e)
+        private void Page2_Load(object sender, EventArgs e)
         {
             foreach (Control ctl in this.Controls)
             {
@@ -36,7 +36,7 @@ namespace WindowsUI
         public void RefreshLabels(object sender, EventArgs e)
         {
             count++;
-            nameLabel.Text = String.Format("{0} {1}", Phrases.GetPhrase("PAGE1"), count);
+            nameLabel.Text = String.Format("{0} {1}", Phrases.GetPhrase("PAGE2"), count);
         }
         private void base_MouseDown(object sender, MouseEventArgs e)
         {
@@ -46,7 +46,7 @@ namespace WindowsUI
         #region Button Clicks
         public void Step1BtnClicked(string str)
         {
-            SendMessageBox(Phrases.GetPhrase("PAGE1"));
+            SendMessageBox(Phrases.GetPhrase("PAGE2"));
         }
         private void SendMessageBox(string txt)
         {
@@ -55,7 +55,7 @@ namespace WindowsUI
             msgBox.FColor = Color.White;
             msgBox.BColor = Color.Orange;
             msgBox.LabelText = txt;
-            if(msgBox.ShowDialog() == DialogResult.Yes) {} else {}
+            if (msgBox.ShowDialog() == DialogResult.Yes) { } else { }
             msgBox.Dispose();
         }
         #endregion

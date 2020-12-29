@@ -30,11 +30,13 @@
         {
             this.dashboardLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.dashboardTopPanel = new System.Windows.Forms.Panel();
+            this.dashboardBottomPanel = new System.Windows.Forms.Panel();
             this.dashboardPanel = new System.Windows.Forms.Panel();
             this.dashboardTile3 = new WindowsUI.DashboardTile();
             this.dashboardTile2 = new WindowsUI.DashboardTile();
             this.dashboardTile1 = new WindowsUI.DashboardTile();
             this.dashboardLayoutPanel.SuspendLayout();
+            this.dashboardBottomPanel.SuspendLayout();
             this.dashboardPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +45,7 @@
             this.dashboardLayoutPanel.ColumnCount = 1;
             this.dashboardLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.dashboardLayoutPanel.Controls.Add(this.dashboardTopPanel, 0, 0);
-            this.dashboardLayoutPanel.Controls.Add(this.dashboardPanel, 0, 1);
+            this.dashboardLayoutPanel.Controls.Add(this.dashboardBottomPanel, 0, 1);
             this.dashboardLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dashboardLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.dashboardLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -62,7 +64,16 @@
             this.dashboardTopPanel.Name = "dashboardTopPanel";
             this.dashboardTopPanel.Size = new System.Drawing.Size(794, 69);
             this.dashboardTopPanel.TabIndex = 0;
-            this.dashboardTopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.dashboardTopPanel_Paint);
+            // 
+            // dashboardBottomPanel
+            // 
+            this.dashboardBottomPanel.Controls.Add(this.dashboardPanel);
+            this.dashboardBottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashboardBottomPanel.Location = new System.Drawing.Point(1, 76);
+            this.dashboardBottomPanel.Margin = new System.Windows.Forms.Padding(1);
+            this.dashboardBottomPanel.Name = "dashboardBottomPanel";
+            this.dashboardBottomPanel.Size = new System.Drawing.Size(798, 373);
+            this.dashboardBottomPanel.TabIndex = 2;
             // 
             // dashboardPanel
             // 
@@ -70,29 +81,31 @@
             this.dashboardPanel.Controls.Add(this.dashboardTile2);
             this.dashboardPanel.Controls.Add(this.dashboardTile1);
             this.dashboardPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dashboardPanel.Location = new System.Drawing.Point(3, 78);
+            this.dashboardPanel.Location = new System.Drawing.Point(0, 0);
             this.dashboardPanel.Name = "dashboardPanel";
-            this.dashboardPanel.Size = new System.Drawing.Size(794, 369);
+            this.dashboardPanel.Size = new System.Drawing.Size(798, 373);
             this.dashboardPanel.TabIndex = 1;
             // 
             // dashboardTile3
             // 
-            this.dashboardTile3.BackgroundImage = global::WindowsUI.Properties.Resources.OrigI;
+            this.dashboardTile3.BackColor = System.Drawing.Color.Linen;
+            this.dashboardTile3.BackgroundImage = global::WindowsUI.Properties.Resources.number3_PNG14959;
             this.dashboardTile3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.dashboardTile3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dashboardTile3.Location = new System.Drawing.Point(537, 66);
+            this.dashboardTile3.Location = new System.Drawing.Point(524, 94);
             this.dashboardTile3.MovementDirection = WindowsUI.DashboardTile.Direction.Any;
             this.dashboardTile3.Name = "dashboardTile3";
             this.dashboardTile3.RunMethodName = "";
-            this.dashboardTile3.Size = new System.Drawing.Size(205, 167);
+            this.dashboardTile3.Size = new System.Drawing.Size(192, 159);
             this.dashboardTile3.TabIndex = 2;
             // 
             // dashboardTile2
             // 
-            this.dashboardTile2.BackgroundImage = global::WindowsUI.Properties.Resources.OrigLanguage;
+            this.dashboardTile2.BackColor = System.Drawing.Color.Linen;
+            this.dashboardTile2.BackgroundImage = global::WindowsUI.Properties.Resources._2_Number_PNG;
             this.dashboardTile2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.dashboardTile2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dashboardTile2.Location = new System.Drawing.Point(329, 66);
+            this.dashboardTile2.Location = new System.Drawing.Point(302, 94);
             this.dashboardTile2.MovementDirection = WindowsUI.DashboardTile.Direction.Any;
             this.dashboardTile2.Name = "dashboardTile2";
             this.dashboardTile2.RunMethodName = "";
@@ -101,10 +114,11 @@
             // 
             // dashboardTile1
             // 
-            this.dashboardTile1.BackgroundImage = global::WindowsUI.Properties.Resources.OrigWindow;
+            this.dashboardTile1.BackColor = System.Drawing.Color.Linen;
+            this.dashboardTile1.BackgroundImage = global::WindowsUI.Properties.Resources.number1_634914_640;
             this.dashboardTile1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.dashboardTile1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dashboardTile1.Location = new System.Drawing.Point(94, 66);
+            this.dashboardTile1.Location = new System.Drawing.Point(72, 94);
             this.dashboardTile1.MovementDirection = WindowsUI.DashboardTile.Direction.Any;
             this.dashboardTile1.Name = "dashboardTile1";
             this.dashboardTile1.RunMethodName = "";
@@ -122,6 +136,7 @@
             this.Text = "Windows UI";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.dashboardLayoutPanel.ResumeLayout(false);
+            this.dashboardBottomPanel.ResumeLayout(false);
             this.dashboardPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -135,6 +150,7 @@
         private DashboardTile dashboardTile2;
         private DashboardTile dashboardTile1;
         private DashboardTile dashboardTile3;
+        private System.Windows.Forms.Panel dashboardBottomPanel;
     }
 }
 

@@ -13,6 +13,9 @@ namespace WindowsUI
         public const string ENGLISH = "English";
         public const string HEBREW = "Hebrew";
 
+        public const string DASHBOARD = "Dashboard";
+        public const string PAGE = "Page";
+
         #region events
 
         public  static event EventHandler LanguageChanged;

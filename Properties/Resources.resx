@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="BigArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BigArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BigClosedWindow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BigClosedWindow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BigDashboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BigDashboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -127,11 +133,29 @@
   <data name="BigLanguage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BigLanguage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BigStep1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BigStep1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BigWindow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BigWindow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BigX" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BigX.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MedGreyArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MedGreyArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MedStep1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MedStep1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="number1_634914_640" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\number1-634914_640.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="number3_PNG14959" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\number3_PNG14959.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="origClosedWindow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\origClosedWindow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="origDashboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\origDashboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,16 +172,28 @@
   <data name="OrigX" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OrigX.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SmallArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SmallArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SmallClosedWindow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SmallClosedWindow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SmallI" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SmallI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SmallLanguage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SmallLanguage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SmallStep1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SmallStep1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SmallWindow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SmallWindow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SmallX" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SmallX.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2_Number_PNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2-Number-PNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
